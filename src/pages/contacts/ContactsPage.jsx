@@ -47,19 +47,21 @@ export default function ContactsPage() {
           <Filter />
         </div>
       </div>
-      <ul className={css.list}>
-        {contacts.map((contact) => (
-          <li key={contact.id} className={css.item}>
-            {contact.name}: {contact.number}
-            <button
-              className={css.btn}
-              onClick={() => setContactToDelete(contact)}
-            >
-              Remove
-            </button>
-          </li>
-        ))}
-      </ul>
+      <div className={css.box}>
+        <ul className={css.list}>
+          {contacts.map((contact) => (
+            <li key={contact.id} className={css.item}>
+              {contact.name}: {contact.number}
+              <button
+                className={css.btn}
+                onClick={() => setContactToDelete(contact)}
+              >
+                Remove
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
       {contactToDelete && (
         <ConfirmDeleteModal
           open={Boolean(contactToDelete)}
