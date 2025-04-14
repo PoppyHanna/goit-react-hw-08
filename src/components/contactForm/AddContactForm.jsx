@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contacts/operations";
 import { toast } from "react-hot-toast";
+import css from "./AddContactForm.module.css";
 
 export default function AddContactForm() {
   const dispatch = useDispatch();
@@ -28,9 +29,9 @@ export default function AddContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Ім'я:
+    <form onSubmit={handleSubmit} className={css.box}>
+      <label className={css.title}>
+        Name:
         <input
           type="text"
           name="name"
@@ -39,7 +40,7 @@ export default function AddContactForm() {
           required
         />
       </label>
-      <label>
+      <label className={css.title}>
         Number:
         <input
           type="tel"
@@ -49,7 +50,9 @@ export default function AddContactForm() {
           required
         />
       </label>
-      <button type="submit">Add contact</button>
+      <button type="submit" className={css.btn}>
+        Add contact
+      </button>
     </form>
   );
 }

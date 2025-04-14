@@ -1,0 +1,54 @@
+.title {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 16px;
+}
+.title input {
+  color: #000;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.title input:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 4px rgba(25, 118, 210, 0.3);
+}
+.box {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid #000;
+  border-radius: 3px;
+  max-width: max-content;
+  background-color: #dce9fd;
+}
+
+.btn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border-radius: 8px;
+  padding: 8px 16px;
+
+  height: 40px;
+  background: linear-gradient(to bottom right, #6666ff 0%, #ff99cc 100%);
+  border: none;
+}
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(to top left, #6666ff 0%, #ff00ff 100%);
+}

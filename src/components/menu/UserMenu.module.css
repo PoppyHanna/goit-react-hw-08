@@ -1,0 +1,26 @@
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.name {
+  font-size: 17px;
+  color: #3a65a5;
+}
+
+.btn {
+  padding: 6px 12px;
+  background: linear-gradient(to bottom right, #6666ff 0%, #ff99cc 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  background: linear-gradient(to top left, #6666ff 0%, #ff00ff 100%);
+}

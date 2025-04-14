@@ -1,0 +1,17 @@
+.header {
+  background-color: #dce9fd;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header .container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

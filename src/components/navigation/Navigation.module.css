@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.link {
+  color: rgb(199, 62, 167);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: #3ba9e9;
+}
+
+.link.active {
+  color: #3675e9;
+}
