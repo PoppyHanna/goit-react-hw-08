@@ -35,10 +35,10 @@ export default function ConfirmDeleteModal({
           variant="contained"
           sx={{ mr: 1 }}
         >
-          Так
+          Remove
         </Button>
         <Button onClick={onClose} variant="outlined">
-          Скасувати
+          Cancel
         </Button>
       </Box>
     </Modal>

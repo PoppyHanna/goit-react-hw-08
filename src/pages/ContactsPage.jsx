@@ -4,6 +4,7 @@ import { fetchContacts, deleteContact } from "../redux/contacts/operations";
 import { selectContacts } from "../redux/contacts/selectors";
 import ConfirmDeleteModal from "../components/deleteModal/ConfirmDeleteModal";
 import toast from "react-hot-toast";
+import AddContactForm from "../components/contactForm/AddContactForm"; // додано
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ export default function ContactsPage() {
 
   return (
     <>
+      <h2>Додати контакт</h2>
+      <AddContactForm /> {/* форма для додавання контакту */}
+      <h2>Мої контакти</h2>
       <ul>
         {contacts.map((contact) => (
           <li key={contact.id}>
@@ -44,7 +48,6 @@ export default function ContactsPage() {
           </li>
         ))}
       </ul>
-
       {contactToDelete && (
         <ConfirmDeleteModal
           open={Boolean(contactToDelete)}
