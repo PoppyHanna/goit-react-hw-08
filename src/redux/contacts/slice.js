@@ -24,7 +24,7 @@ const contactsSlice = createSlice({
       .addCase(fetchContacts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        toast.error('Не вдалося завантажити контакти.');
+        toast.error('Failed to load contacts.');
       })
 
    
@@ -34,12 +34,12 @@ const contactsSlice = createSlice({
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items.push(action.payload);
-        toast.success(`Контакт ${action.payload.name} додано.`);
+        toast.success(`Contact ${action.payload.name} added.`);
       })
       .addCase(addContact.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        toast.error('Не вдалося додати контакт.');
+        toast.error('Failed to add contact.');
       })
 
       
@@ -49,12 +49,12 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = state.items.filter(contact => contact.id !== action.payload.id);
-        toast.success(`Контакт ${action.payload.name} видалено.`);
+        toast.success(`Contact ${action.payload.name} remove.`);
       })
       .addCase(deleteContact.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
-        toast.error('Не вдалося видалити контакт.');
+        toast.error('Failed to delete contact.');
       })
 
      
