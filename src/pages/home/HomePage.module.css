@@ -7,9 +7,10 @@
   -webkit-background-clip: text;
   background-clip: text;
   justify-content: center;
-  margin: 15px 0;
-  height: 100%;
   align-items: center;
   text-align: center;
-  /* width: 305px; */
+  margin: 30px 0;
+
+  min-height: 100px;
+  line-height: 1.2;
 }

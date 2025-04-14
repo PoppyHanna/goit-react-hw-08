@@ -1,9 +1,18 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Brush Script MT", cursive;
   font-size: 20px;
   color: #4700b3;
   background-color: azure;
-  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 ul {
   list-style: none;
@@ -13,14 +22,14 @@ button {
 }
 
 .container {
-  margin-top: 30px;
-  margin-left: 30px;
-  padding: 30px;
+  padding: 40px;
   border: 2px solid #000;
-  border-radius: 3px;
+  border-radius: 8px;
   background-color: #fff;
-  width: 1000px;
-  height: 100%;
+  width: 1200px;
+  height: 500px;
+  max-width: 95%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .title {
