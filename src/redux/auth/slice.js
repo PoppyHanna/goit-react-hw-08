@@ -15,52 +15,52 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      // Реєстрація користувача
+    
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        toast.success('Реєстрація успішна!');
+        toast.success('Registration successful!');
       })
       .addCase(register.rejected, (state, action) => {
         state.error = action.payload || action.error.message;
-        // Безпечна перевірка повідомлення про помилку
+       
         if (action.payload?.message === 'Email in use') {
-          toast.error('Користувач з таким email вже існує.');
+          toast.error('A user with this email already exist.');
         } else {
-          toast.error(state.error || 'Помилка при реєстрації.');
+          toast.error(state.error || 'Error registering.');
         }
       })
 
-      // Вхід користувача
+     
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
-        toast.success('Вхід виконано!');
+        toast.success('Login done!');
       })
       .addCase(login.rejected, (state, action) => {
         state.error = action.payload || action.error.message;
         if (action.payload?.message === 'Email or password is wrong') {
-          toast.error('Невірний email або пароль.');
+          toast.error('Invalid email or password.');
         } else {
-          toast.error(state.error || 'Помилка при вході.');
+          toast.error(state.error || 'Login error.');
         }
       })
 
-      // Вихід користувача
+      
       .addCase(logout.fulfilled, state => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
-        toast.success('Вихід виконано.');
+        toast.success('Logout completed.');
       })
       .addCase(logout.rejected, (state, action) => {
         state.error = action.payload || action.error.message;
-        toast.error(state.error || 'Помилка при виході.');
+        toast.error(state.error || 'Logout error.');
       })
 
-      // Оновлення користувача по токену
+     
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
@@ -74,7 +74,7 @@ const authSlice = createSlice({
         state.token = null;
         state.user = { name: null, email: null };
         state.error = action.payload || action.error.message;
-        toast.error('Сесія завершена. Будь ласка, увійдіть знову.');
+        toast.error('Session ended. Please log in again.');
       })
 });
 

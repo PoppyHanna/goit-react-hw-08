@@ -14,19 +14,19 @@ import {
   REGISTER,
 } from 'redux-persist';
 
-import storage from 'redux-persist/lib/storage'; // localStorage для збереження токена
+import storage from 'redux-persist/lib/storage'; 
 
-// Конфіг для збереження токена
+
 const authPersistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token'], // Зберігаємо лише token
+  whitelist: ['token'], 
 };
 
-// Створення store з персистенцією
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer), // persistReducer для auth
+    auth: persistReducer(authPersistConfig, authReducer), 
     contacts: contactsReducer,
     filters: filterReducer,
   },
@@ -38,5 +38,5 @@ export const store = configureStore({
     }),
 });
 
-// persistStore для роботи з PersistGate
+
 export const persistor = persistStore(store);

@@ -15,15 +15,15 @@ export default function AddContactForm() {
       dispatch(addContact({ name, number }))
         .unwrap()
         .then(() => {
-          toast.success("Контакт додано!");
+          toast.success("Contact added!");
           setName("");
           setNumber("");
         })
         .catch(() => {
-          toast.error("Не вдалося додати контакт");
+          toast.error("Cannot add contact!");
         });
     } else {
-      toast.error("Будь ласка, заповніть всі поля.");
+      toast.error("Please fill in all fields.");
     }
   };
 
@@ -40,7 +40,7 @@ export default function AddContactForm() {
         />
       </label>
       <label>
-        Номер:
+        Number:
         <input
           type="tel"
           name="number"
@@ -49,7 +49,7 @@ export default function AddContactForm() {
           required
         />
       </label>
-      <button type="submit">Додати контакт</button>
+      <button type="submit">Add contact</button>
     </form>
   );
 }

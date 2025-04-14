@@ -9,17 +9,17 @@ export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
     try {
-      const state = thunkAPI.getState();         // отримуємо весь state
-      const token = state.auth.token;            // дістаємо токен
+      const state = thunkAPI.getState();         
+      const token = state.auth.token;            
 
-      if (!token) return thunkAPI.rejectWithValue('No token'); // якщо немає токена, повертаємо помилку
+      if (!token) return thunkAPI.rejectWithValue('No token'); 
 
-      setAuthHeader(token);                      // додаємо токен до запиту
+      setAuthHeader(token);                      
 
-      const res = await axios.get('/contacts');  // виконуємо запит на отримання контактів
-      return res.data;                           // повертаємо дані з відповіді
+      const res = await axios.get('/contacts');  
+      return res.data;                           
     } catch (e) {
-      return thunkAPI.rejectWithValue(e.message); // якщо сталася помилка, повертаємо повідомлення про помилку
+      return thunkAPI.rejectWithValue(e.message); 
     }
   }
 );

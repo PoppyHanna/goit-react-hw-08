@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchContacts, deleteContact } from "../redux/contacts/operations";
-import { selectContacts } from "../redux/contacts/selectors";
+import { selectFilteredContacts } from "../redux/contacts/selectors"; // ⬅️ фільтровані контакти
 import ConfirmDeleteModal from "../components/deleteModal/ConfirmDeleteModal";
 import toast from "react-hot-toast";
-import AddContactForm from "../components/contactForm/AddContactForm"; // додано
+import AddContactForm from "../components/contactForm/AddContactForm";
+import Filter from "../components/filter/Filter";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
-  const contacts = useSelector(selectContacts);
+  const contacts = useSelector(selectFilteredContacts);
 
   const [contactToDelete, setContactToDelete] = useState(null);
 
@@ -20,39 +21,38 @@ export default function ContactsPage() {
     dispatch(deleteContact(contactToDelete.id))
       .unwrap()
       .then(() => {
-        toast.success(`Контакт "${contactToDelete.name}" видалено`);
+        toast.success(`Contact "${contactToDelete.name}" deleted`);
       })
       .catch(() => {
-        toast.error("Не вдалося видалити контакт");
+        toast.error("Failed to delete contact");
       });
     setContactToDelete(null);
   };
 
   const handleCancel = () => {
-    toast("Видалення скасовано");
+    toast("Delete canceled");
     setContactToDelete(null);
   };
 
   return (
     <>
-      <h2>Додати контакт</h2>
-      <AddContactForm /> {/* форма для додавання контакту */}
-      <h2>Мої контакти</h2>
+      <h2>Add contact</h2>
+      <AddContactForm />
+      <h2>My contacts</h2>
+      <Filter />
       <ul>
         {contacts.map((contact) => (
           <li key={contact.id}>
             {contact.name}: {contact.number}
-            <button onClick={() => setContactToDelete(contact)}>
-              Видалити
-            </button>
+            <button onClick={() => setContactToDelete(contact)}>Remove</button>
           </li>
         ))}
       </ul>
       {contactToDelete && (
         <ConfirmDeleteModal
           open={Boolean(contactToDelete)}
-          onClose={handleCancel} // якщо натиснули "Скасувати"
-          onConfirm={handleDeleteConfirm} // якщо натиснули "Так"
+          onClose={handleCancel}
+          onConfirm={handleDeleteConfirm}
           contactName={contactToDelete.name}
         />
       )}

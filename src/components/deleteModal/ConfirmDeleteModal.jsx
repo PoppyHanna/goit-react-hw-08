@@ -25,9 +25,9 @@ export default function ConfirmDeleteModal({
   return (
     <Modal open={open} onClose={onClose}>
       <Box sx={style}>
-        <h3>Видалити контакт?</h3>
+        <h3>Remove contact?</h3>
         <p>
-          Ви справді хочете видалити <strong>{contactName}</strong>?
+          Do you really want to remove the <strong>{contactName}</strong>?
         </p>
         <Button
           onClick={onConfirm}

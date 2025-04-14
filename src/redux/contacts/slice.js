@@ -13,7 +13,7 @@ const contactsSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      // --- FETCH CONTACTS ---
+     
       .addCase(fetchContacts.pending, state => {
         state.isLoading = true;
       })
@@ -27,7 +27,7 @@ const contactsSlice = createSlice({
         toast.error('Не вдалося завантажити контакти.');
       })
 
-      // --- ADD CONTACT ---
+   
       .addCase(addContact.pending, state => {
         state.isLoading = true;
       })
@@ -42,7 +42,7 @@ const contactsSlice = createSlice({
         toast.error('Не вдалося додати контакт.');
       })
 
-      // --- DELETE CONTACT ---
+      
       .addCase(deleteContact.pending, state => {
         state.isLoading = true;
       })
@@ -57,7 +57,7 @@ const contactsSlice = createSlice({
         toast.error('Не вдалося видалити контакт.');
       })
 
-      // --- LOGOUT: очищення контактів ---
+     
       .addCase(logout.fulfilled, state => {
         state.items = [];
         state.error = null;
